@@ -9,7 +9,7 @@
 new Vue({
     el: '#app',
     data: {
-        isAscending: false,
+        whySorted: "byName",
         products:
             [{
                 id: 0,
@@ -33,11 +33,10 @@ new Vue({
                 price: 30
             },]
     },
-    methods: {
-    },
+    methods: {},
     computed: {
         sortFromPrice() {
-            if (this.isAscending) {
+            if (this.whySorted === "ascending") {
                 return this.products.sort((a, b) => {
                     if (a.price < b.price) {
                         return -1;
@@ -45,27 +44,27 @@ new Vue({
                 });
 
 
-            } else {
+            } else if (this.whySorted === "descending") {
                 return this.products.sort((a, b) => {
                     if (a.price > b.price) {
                         return -1;
                     }
 
                 });
-
-                // } else {
-                //     return this.products.sort((a, b) => {
-                //         const aName = a.name.toUpperCase();
-                //         const bName = a.name.toUpperCase();
-                //         if (aName > bName) {
-                //             return 1;
-                //         } else if (bName > aName) {
-                //             return -1;
-                //         } else {
-                //             return 0;
-                //         }
-                //     })
-                // }
+            } else if (this.whySorted === "byName") {
+                return this.products.sort((a, b) => {
+                    const aName = a.name.toUpperCase();
+                    const bName = b.name.toUpperCase();
+                    if (aName < bName) {
+                        return -1;
+                    }
+                })
+            } else if (this.whySorted === "notSorted") {
+                return this.products.sort((a, b) => {
+                    if (a.id < b.id) {
+                        return -1;
+                    }
+                });
             }
         }
     }

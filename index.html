@@ -14,12 +14,14 @@
             <p>Name: {{item.name}}; <span>Price: {{item.price}}</span></p>
         </li>
     </ul>
-    <input type="radio" name="sortByPrice" id="ascendingPrice" v-model="isAscending" value=true  checked >
+    <input type="radio" name="sortBy" id="ascendingPrice" v-model="whySorted" value="ascending" checked>
     <label for="ascendingPrice">по-возрастанию</label>
-    <input type="radio" name="sortByPrice" id="descendingPrice" v-model="isAscending">
+    <input type="radio" name="sortBy" id="descendingPrice" v-model="whySorted" value="descending">
     <label for="descendingPrice">по-убыванию</label>
-    <input type="radio" name="sortByPrice"  id="noSortByPrice">
-    <label for="noSortByPrice">сортировать по имени</label>
+    <input type="radio" name="sortBy" id="SortByName" v-model="whySorted" value="byName">
+    <label for="SortByName">сортировать по имени</label>
+    <input type="radio" name="sortBy" id="notSorted" v-model="whySorted" value="notSorted">
+    <label for="notSorted">не сортировать</label>
 </div>
 </body>
 </html>
