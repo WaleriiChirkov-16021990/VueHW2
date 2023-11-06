@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="main.js" type="text/javascript" defer></script>
+</head>
+<body>
+<div id="app">
+    .
+    <ul>
+        <li v-for="item in sortFromPrice">
+            <p>Name: {{item.name}}; <span>Price: {{item.price}}</span></p>
+        </li>
+    </ul>
+    <input type="radio" name="sortByPrice" id="ascendingPrice" v-model="isAscending" value=true  checked >
+    <label for="ascendingPrice">по-возрастанию</label>
+    <input type="radio" name="sortByPrice" id="descendingPrice" v-model="isAscending">
+    <label for="descendingPrice">по-убыванию</label>
+    <input type="radio" name="sortByPrice"  id="noSortByPrice">
+    <label for="noSortByPrice">сортировать по имени</label>
+</div>
+</body>
+</html>
